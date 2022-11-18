@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: your_deployment
+  name: project-keptn-test-deployment
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
