@@ -11,13 +11,9 @@ spec:
         - name: "deployment"
           properties:
             deploymentstrategy: "direct"
-        - name: "test"
-          properties:
-            teststrategy: "functional"
-        - name: "evaluation"
         - name: "release"
 
-    - name: "hardening"
+    - name: "production"
       sequences:
       - name: "delivery"
         triggeredOn:
@@ -25,20 +21,5 @@ spec:
         tasks: 
         - name: "deployment"
           properties:
-            deploymentstrategy: "blue_green_service"
-        - name: "test"
-          properties:
-            teststrategy: "functional"
-        - name: "evaluation"
-        - name: "release"
-
-    - name: "production"
-      sequences:
-      - name: "delivery"
-        triggeredOn:
-          - event: "hardening.delivery.finished"
-        tasks: 
-        - name: "deployment"
-          properties:
-            deploymentstrategy: "blue_green_service"
+            deploymentstrategy: "direct"
         - name: "release"
